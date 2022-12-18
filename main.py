@@ -81,12 +81,11 @@ def main(request):
         return page_unauthorized(401)
 
     # Get a list of the current records
-    records = get_records()
-    logging.info(f'Records: {get_records}')
-	
+    records = get_records()	
 
     # Check for matching records
     for record in records:
+	logging.info(f'Record: {record}')
         if record.name == host and record.record_type == 'A' and ipv4:
             a_record_found = True
             for data in record.rrdatas:
