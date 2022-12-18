@@ -51,7 +51,10 @@ def main(request):
     ret_val = ""
     
     logging.info("Update request started.")
-
+    if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+        print(f"IP address: {request.environ['REMOTE_ADDR']}")
+    else:
+        print(f"IP address: {request.environ['HTTP_X_FORWARDED_FOR']}") # if behind a proxy
     request_args = request.get_json(silent=True)
     
     # Assign our parameters
