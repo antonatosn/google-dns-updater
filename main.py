@@ -82,7 +82,7 @@ def main(request):
 
     # Get a list of the current records
     records = get_records()
-    logging.debug(f'Records: {get_records}')
+    logging.info(f'Records: {get_records}')
 	
 
     # Check for matching records
